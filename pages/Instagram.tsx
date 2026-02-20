@@ -334,9 +334,11 @@ export const InstagramManager: React.FC = () => {
                                             <p className="text-[10px] font-medium text-slate-700 dark:text-slate-200 truncate">{post.title}</p>
                                         </div>
                                         <div className={`h-1 w-full rounded-full ${
-                                            post.status === InstaStatus.PUBLICADO ? 'bg-purple-400' :
-                                            post.status === InstaStatus.APROVADO ? 'bg-green-400' :
-                                            'bg-slate-200 dark:bg-slate-500'
+                                            post.status === InstaStatus.PUBLICADO ? 'bg-purple-500' :
+                                            post.status === InstaStatus.APROVADO ? 'bg-emerald-500' :
+                                            post.status === InstaStatus.REVISAO ? 'bg-amber-400' :
+                                            post.status === InstaStatus.CRIACAO ? 'bg-blue-500' :
+                                            'bg-slate-300 dark:bg-slate-600'
                                         }`}></div>
                                     </div>
                                 ))}
