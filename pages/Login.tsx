@@ -48,13 +48,21 @@ export const Login: React.FC = () => {
             
             {/* Header */}
             <div className="text-left">
-                <div className="flex items-center justify-start gap-2 mb-6">
-                     <div className="bg-red-600 p-2 rounded-lg text-white">
-                        <Bike size={24} />
-                     </div>
-                     <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Motoeste</span>
+                <div className="mb-14 -mt-4">
+                     <img 
+                        src="https://media.beefree.cloud/pub/bfra/6x2ega8t/ag2/40v/gt6/Vetor%20Motoeste%20%C2%AE%20Black.svg" 
+                        alt="Motoeste Logo" 
+                        className="h-8 w-auto dark:hidden"
+                        referrerPolicy="no-referrer"
+                     />
+                     <img 
+                        src="https://media.beefree.cloud/pub/bfra/6x2ega8t/vn3/f6x/9oi/Vetor%20Motoeste%20%C2%AE.svg" 
+                        alt="Motoeste Logo" 
+                        className="h-8 w-auto hidden dark:block"
+                        referrerPolicy="no-referrer"
+                     />
                 </div>
-                <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                <h1 className="text-3xl lg:text-4xl font-bold text-red-600 dark:text-red-500 tracking-tight mb-3">
                     Bem-vindo de volta
                 </h1>
                 <p className="text-slate-500 dark:text-slate-400 text-lg">
@@ -114,7 +122,7 @@ export const Login: React.FC = () => {
             {/* Footer */}
             <div className="pt-8 text-left">
                 <p className="text-xs text-slate-400 dark:text-slate-500">
-                    © 2026 Grupo Motoeste. Sistema interno de gestão.
+                    © 2026 Grupo Motoeste | Sistema para Gestão de Marketing.
                 </p>
             </div>
         </div>
@@ -125,9 +133,9 @@ export const Login: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
             <img 
-                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop" 
+                src="https://media.beefree.cloud/pub/bfra/6x2ega8t/acx/tsk/ljh/BHB_25Anos_BannerBlog_teste%201.jpg" 
                 alt="Motorcycle Background" 
-                className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+                className="w-full h-full object-cover opacity-99 mix-blend-overlay"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/90 to-red-900/40" />
         </div>
@@ -135,7 +143,7 @@ export const Login: React.FC = () => {
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-center items-start p-16 h-full text-white text-left">
             <div className="absolute top-12 right-12">
-                <div className="flex gap-4 opacity-50">
+                <div className="flex gap-4 opacity-20">
                     <Bike size={32} />
                     <div className="w-px h-8 bg-white/20" />
                     <Car size={32} />
