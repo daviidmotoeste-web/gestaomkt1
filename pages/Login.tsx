@@ -133,7 +133,7 @@ export const Login: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
             <img 
-                src="https://media.beefree.cloud/pub/bfra/6x2ega8t/acx/tsk/ljh/BHB_25Anos_BannerBlog_teste%201.jpg" 
+                src="https://media.beefree.cloud/pub/bfra/6x2ega8t/v02/7ki/fdv/banner%20login.png" 
                 alt="Motorcycle Background" 
                 className="w-full h-full object-cover opacity-99 mix-blend-overlay"
             />
