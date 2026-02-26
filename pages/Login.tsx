@@ -129,48 +129,57 @@ export const Login: React.FC = () => {
       </div>
 
       {/* Right Side - Visual */}
-      <div className="hidden lg:flex w-1/2 bg-slate-900 relative overflow-hidden">
+      <div className="hidden lg:flex w-1/2 bg-slate-950 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
             <img 
                 src="https://media.beefree.cloud/pub/bfra/6x2ega8t/v02/7ki/fdv/banner%20login.png" 
                 alt="Motorcycle Background" 
-                className="w-full h-full object-cover opacity-99 mix-blend-overlay"
+                className="w-full h-full object-cover opacity-50"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/90 to-red-900/40" />
+            {/* Clean gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-center items-start p-16 h-full text-white text-left">
-            <div className="absolute top-12 right-12">
-                <div className="flex gap-4 opacity-20">
-                    <Bike size={32} />
-                    <div className="w-px h-8 bg-white/20" />
-                    <Car size={32} />
+            {/* Top Right Icons */}
+            <div className="absolute top-12 right-12 opacity-40">
+                <div className="flex gap-4">
+                    <Bike size={24} />
+                    <div className="w-px h-6 bg-white/30" />
+                    <Car size={24} />
                 </div>
             </div>
             
-            <div className="max-w-lg space-y-6 flex flex-col items-start">
-                <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-red-900/20 animate-scale-in">
-                    <CheckCircle2 size={32} className="text-white" />
+            <div className="max-w-lg space-y-8 flex flex-col items-start animate-fade-in">
+                {/* Icon - Glassmorphism */}
+                <div className="w-14 h-14 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-2">
+                    <CheckCircle2 size={28} className="text-white/90" />
                 </div>
-                <h2 className="text-4xl font-bold leading-tight">
-                    Gestão unificada para <span className="text-red-500">Motos</span> e <span className="text-blue-400">Carros</span>.
+
+                <h2 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white">
+                    Gestão unificada <br />
+                    <span className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent font-normal">Motos & Carros</span>
                 </h2>
-                <p className="text-slate-300 text-lg leading-relaxed">
-                    Acompanhe campanhas, gerencie o calendário de conteúdo e visualize relatórios de desempenho em um só lugar.
+                
+                <p className="text-slate-400 text-lg leading-relaxed font-light max-w-md">
+                    Centralize suas campanhas, calendário e relatórios em uma única plataforma intuitiva e eficiente.
                 </p>
                 
-                {/* Stats/Features Pills */}
-                <div className="flex gap-3 pt-4">
-                    <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/10">
-                        Marketing
+                {/* Features - Clean List */}
+                <div className="flex flex-col gap-3 pt-4">
+                    <div className="flex items-center gap-3 text-sm font-medium text-slate-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                        Marketing Digital
                     </div>
-                    <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/10">
-                        Social Media
+                    <div className="flex items-center gap-3 text-sm font-medium text-slate-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                        Social Media Analytics
                     </div>
-                    <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/10">
-                        Analytics
+                    <div className="flex items-center gap-3 text-sm font-medium text-slate-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                        Relatórios em Tempo Real
                     </div>
                 </div>
             </div>
