@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Calendar, Megaphone, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Calendar, Megaphone, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Image, Zap, FileText, Brain } from 'lucide-react';
 import { Status, InstaStatus } from '../types';
 
 export const Dashboard: React.FC = () => {
@@ -32,8 +32,11 @@ export const Dashboard: React.FC = () => {
   const colorPrimary = core === 'MOTOS' ? '#dc2626' : '#2563eb';
   const colorSecondary = core === 'MOTOS' ? '#fca5a5' : '#93c5fd';
 
-  const KPICard = ({ title, value, icon: Icon, colorClass, delay }: any) => (
-    <div className={`bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-start justify-between hover:shadow-lg hover:scale-[1.02] transition-all duration-300 animate-slide-up ${delay}`}>
+  const KPICard = ({ title, value, icon: Icon, colorClass, delay, path }: any) => (
+    <div 
+      onClick={() => path && navigate(path)}
+      className={`bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex items-start justify-between hover:shadow-lg hover:scale-[1.02] transition-all duration-300 animate-slide-up cursor-pointer ${delay}`}
+    >
       <div>
         <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{title}</p>
         <h3 className="text-3xl font-bold text-slate-800 dark:text-white">{value}</h3>
@@ -54,6 +57,7 @@ export const Dashboard: React.FC = () => {
           icon={Calendar} 
           colorClass={core === 'MOTOS' ? 'bg-red-500' : 'bg-blue-500'} 
           delay="delay-0"
+          path="/events"
         />
         <KPICard 
           title="Posts em Produção" 
@@ -61,6 +65,7 @@ export const Dashboard: React.FC = () => {
           icon={CheckCircle2} 
           colorClass="bg-emerald-500" 
           delay="delay-75"
+          path="/instagram"
         />
         <KPICard 
           title="Campanhas MyHonda" 
@@ -68,6 +73,7 @@ export const Dashboard: React.FC = () => {
           icon={Megaphone} 
           colorClass="bg-amber-500" 
           delay="delay-100"
+          path="/myhonda"
         />
         <KPICard 
           title="Relatórios (Mês)" 
@@ -75,6 +81,7 @@ export const Dashboard: React.FC = () => {
           icon={AlertCircle} 
           colorClass="bg-purple-500" 
           delay="delay-150"
+          path="/reports"
         />
       </div>
 
@@ -137,6 +144,37 @@ export const Dashboard: React.FC = () => {
           >
             Ver Calendário Completo
           </button>
+        </div>
+      </div>
+
+      {/* AI Tools Section */}
+      <div className="pt-8 border-t border-slate-100 dark:border-slate-800 animate-slide-up delay-500">
+        <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
+          <Sparkles className="text-amber-500" size={20} />
+          Nossas plataformas de trabalho Ai:
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { name: 'Canva AI', url: 'https://www.canva.com', icon: Zap, color: 'bg-cyan-500' },
+            { name: 'ChatGPT', url: 'https://chat.openai.com', icon: MessageSquare, color: 'bg-emerald-500' },
+            { name: 'Gemini', url: 'https://gemini.google.com', icon: Sparkles, color: 'bg-blue-500' },
+            { name: 'Midjourney', url: 'https://www.midjourney.com', icon: Image, color: 'bg-purple-500' },
+            { name: 'Copy.ai', url: 'https://www.copy.ai', icon: FileText, color: 'bg-slate-800' },
+            { name: 'Jasper', url: 'https://www.jasper.ai', icon: Brain, color: 'bg-orange-500' },
+          ].map((tool, index) => (
+            <a 
+              key={index}
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center gap-3 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className={`p-3 rounded-lg ${tool.color} text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                <tool.icon size={24} />
+              </div>
+              <span className="font-semibold text-slate-700 dark:text-slate-300 text-sm">{tool.name}</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
