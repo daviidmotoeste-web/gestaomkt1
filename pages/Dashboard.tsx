@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { Calendar, Megaphone, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Image, Zap, FileText, Brain } from 'lucide-react';
+import { Calendar, Megaphone, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Image, Zap, FileText, Brain, Mail } from 'lucide-react';
 import { Status, InstaStatus } from '../types';
 
 export const Dashboard: React.FC = () => {
@@ -268,9 +268,9 @@ export const Dashboard: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
           {[
             { name: 'Auto Design', suffix: 'By Motoeste', url: 'https://ai-autodesign.vercel.app/', icon: Zap, color: 'from-red-600 to-red-900', secondaryColor: 'bg-orange-500', glow: 'bg-red-600/20', border: 'group-hover:border-red-600/50', tint: 'hover:bg-red-600/[0.15]' },
+            { name: 'Motoeste Signature', suffix: 'By Motoeste', url: 'https://motoestesignature.vercel.app/', icon: Mail, color: 'from-slate-900 to-black dark:from-slate-100 dark:to-white', textColor: 'text-white dark:text-slate-900', secondaryColor: 'bg-slate-800 dark:bg-slate-300', glow: 'bg-slate-900/20 dark:bg-white/20', border: 'group-hover:border-slate-900/50 dark:group-hover:border-white/50', tint: 'hover:bg-slate-900/[0.15] dark:hover:bg-white/[0.15]' },
             { name: 'ChatGPT', url: 'https://chat.openai.com', icon: MessageSquare, color: 'from-emerald-600 to-teal-500', secondaryColor: 'bg-cyan-400', glow: 'bg-emerald-500/20', border: 'group-hover:border-emerald-500/50', tint: 'hover:bg-emerald-500/[0.15]' },
             { name: 'Gemini', url: 'https://gemini.google.com', icon: Sparkles, color: 'from-blue-600 via-indigo-500 to-purple-500', secondaryColor: 'bg-pink-500', glow: 'bg-blue-500/20', border: 'group-hover:border-blue-500/50', tint: 'hover:bg-blue-500/[0.15]' },
-            { name: 'Midjourney', url: 'https://www.midjourney.com', icon: Image, color: 'from-purple-600 to-pink-500', secondaryColor: 'bg-indigo-500', glow: 'bg-purple-500/20', border: 'group-hover:border-purple-500/50', tint: 'hover:bg-purple-500/[0.15]' },
             { name: 'Copy.ai', url: 'https://www.copy.ai', icon: FileText, color: 'from-slate-700 to-slate-900', secondaryColor: 'bg-blue-600', glow: 'bg-slate-500/20', border: 'group-hover:border-slate-500/50', tint: 'hover:bg-slate-500/[0.15]' },
             { name: 'Jasper', url: 'https://www.jasper.ai', icon: Brain, color: 'from-orange-600 to-red-500', secondaryColor: 'bg-yellow-400', glow: 'bg-orange-500/20', border: 'group-hover:border-orange-500/50', tint: 'hover:bg-orange-500/[0.15]' },
           ].map((tool: any, index) => (
@@ -286,7 +286,7 @@ export const Dashboard: React.FC = () => {
               <div className={`absolute -left-12 -top-12 w-28 h-28 rounded-full blur-3xl opacity-20 group-hover:opacity-50 transition-all duration-700 ${tool.secondaryColor}`} />
               
               {/* Icon Container */}
-              <div className={`relative p-3.5 rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0`}>
+              <div className={`relative p-3.5 rounded-xl bg-gradient-to-br ${tool.color} ${tool.textColor || 'text-white'} shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0`}>
                 <tool.icon size={22} />
                 <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
@@ -297,7 +297,7 @@ export const Dashboard: React.FC = () => {
                     {tool.name}
                   </span>
                   {tool.suffix && (
-                    <span className={`text-[9px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded bg-gradient-to-br ${tool.color} text-white shadow-sm whitespace-nowrap flex-shrink-0`}>
+                    <span className={`text-[9px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded bg-gradient-to-br ${tool.color} ${tool.textColor || 'text-white'} shadow-sm whitespace-nowrap flex-shrink-0`}>
                       {tool.suffix}
                     </span>
                   )}
